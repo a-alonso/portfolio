@@ -1,5 +1,8 @@
-html, body{
-	font-size:16px;
+/* =============================================================
+   BASE
+   ============================================================= */
+html, body {
+	font-size: 16px;
 	color: #1D2222;
 	background-color: #FFF;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -13,7 +16,7 @@ a:hover {
   color: #00d1b2;
 }
 
-section{
+section {
 	padding-bottom: 3rem;
 }
 
@@ -21,10 +24,13 @@ dd {
 	text-indent: 1rem;
 }
 
+/* =============================================================
+   SECTION BACKGROUNDS
+   ============================================================= */
 .section-1 {
 	background: #5AC5E2;
-	background: -webkit-linear-gradient(to right, #5AC5E2, #AFE2F0); /* Chrome 10-25, Safari 5.1-6 */
- 	background: linear-gradient(to right, #5AC5E2, #AFE2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right, #5AC5E2, #AFE2F0);
+	background: linear-gradient(to right, #5AC5E2, #AFE2F0);
 }
 
 .section-2 {
@@ -39,20 +45,18 @@ dd {
 	padding: 0.2rem;
 }
 
-a.nav-item {
-	color: #5AC5E2;
-}
-
-a.nav-item:hover {
-	color: #4C6161;
-}
-
-.avatar{
-	height:80px;
+/* =============================================================
+   AVATAR
+   ============================================================= */
+.avatar {
+	height: 80px;
 	border-radius: 50%;
 }
 
-.intro-description{
+/* =============================================================
+   MISC LAYOUT
+   ============================================================= */
+.intro-description {
 	padding-top: 1rem;
 }
 
@@ -81,6 +85,9 @@ a.nav-item:hover {
 	margin: 0 auto;
 }
 
+/* =============================================================
+   PHONE IFRAME MOCKUP (work_nequi)
+   ============================================================= */
 .iframe-phone {
     background-image: url("https://mockuphone.com/static/images/devices/apple-iphone6-spacegrey-portrait.png");
     background-repeat: no-repeat;
@@ -98,9 +105,117 @@ a.nav-item:hover {
     left: 233px;
 }
 
-/*Background Colours*/
+/* =============================================================
+   NAVBAR — MOBILE FIX
+   On mobile the .navbar.is-transparent has no background, which
+   makes the burger icon invisible against a light/gradient hero.
+   Force a solid white background for the brand row on small screens
+   so the burger is always visible and tappable.
+   ============================================================= */
+@media screen and (max-width: 1023px) {
+  .navbar {
+    background-color: #ffffff;
+  }
 
-@media screen and (max-width: 768px) {
+  /* Ensure the open menu panel also has a solid background */
+  .navbar-menu.is-active {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+  }
 
+  /* Give the burger button enough touch target size (44px min) */
+  .navbar-burger {
+    height: 3.25rem;
+    width: 3.25rem;
+  }
+}
 
+/* =============================================================
+   DARK MODE
+   Uses Bulma's built-in data-theme attribute (Bulma v1.0+).
+   Set <html data-theme="dark"> to activate, or rely on the
+   prefers-color-scheme media query fallback below.
+
+   Bulma v1.0 exposes CSS custom properties (--bulma-*) that we
+   override here. The properties below cover the main surfaces
+   and text colours used across this portfolio.
+   ============================================================= */
+[data-theme="dark"],
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+  }
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Page background & text */
+  --bulma-body-background-color: #121212;
+  --bulma-body-color: #e0e0e0;
+  --bulma-text: #e0e0e0;
+
+  /* Scheme colours used for surfaces */
+  --bulma-scheme-main: #1e1e1e;
+  --bulma-scheme-main-bis: #252525;
+  --bulma-scheme-main-ter: #2a2a2a;
+
+  /* Border / divider */
+  --bulma-border: rgba(255, 255, 255, 0.12);
+  --bulma-border-hover: rgba(255, 255, 255, 0.24);
+
+  /* Navbar */
+  --bulma-navbar-background-color: #1e1e1e;
+  --bulma-navbar-item-color: #e0e0e0;
+  --bulma-navbar-item-hover-background-color: #2a2a2a;
+  --bulma-navbar-dropdown-background-color: #1e1e1e;
+  --bulma-navbar-divider-background-color: rgba(255,255,255,0.1);
+
+  /* Card */
+  --bulma-card-background-color: #1e1e1e;
+  --bulma-card-color: #e0e0e0;
+  --bulma-card-shadow: 0 4px 16px rgba(0,0,0,0.5);
+
+  /* Hero light → remap to dark surface */
+  --bulma-light: #2a2a2a;
+  --bulma-light-invert: #e0e0e0;
+
+  /* Notification backgrounds */
+  --bulma-notification-background-color: #2a2a2a;
+
+  /* Links stay on-brand teal */
+  --bulma-link: #00d1b2;
+  --bulma-link-hover: #00c4a7;
+
+  /* Custom site overrides */
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Apply dark-mode base styles when OS preference is dark
+   and the user has NOT explicitly set data-theme="light" */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bulma-body-background-color: #121212;
+    --bulma-body-color: #e0e0e0;
+    --bulma-text: #e0e0e0;
+    --bulma-scheme-main: #1e1e1e;
+    --bulma-scheme-main-bis: #252525;
+    --bulma-scheme-main-ter: #2a2a2a;
+    --bulma-border: rgba(255, 255, 255, 0.12);
+    --bulma-navbar-background-color: #1e1e1e;
+    --bulma-navbar-item-color: #e0e0e0;
+    --bulma-navbar-item-hover-background-color: #2a2a2a;
+    --bulma-navbar-dropdown-background-color: #1e1e1e;
+    --bulma-navbar-divider-background-color: rgba(255,255,255,0.1);
+    --bulma-card-background-color: #1e1e1e;
+    --bulma-card-color: #e0e0e0;
+    --bulma-card-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    --bulma-light: #2a2a2a;
+    --bulma-light-invert: #e0e0e0;
+    --bulma-link: #00d1b2;
+    background-color: #121212;
+    color: #e0e0e0;
+  }
 }
