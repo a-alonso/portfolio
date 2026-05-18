@@ -29,15 +29,16 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 </head>
 	<body>
 		<!-- About Me -->
-		<section id="about" class="hero is-light is-bold">
+		<!-- FIX: removed is-bold (deprecated in Bulma v1.0, has no effect) -->
+		<section id="about" class="hero is-light">
 			<!-- Navbar -->
 			<nav class="navbar is-transparent" role="navigation" aria-label="dropdown navigation">
 			  <div class="navbar-brand">
-			    <button class="button navbar-burger" data-target="navMenu">
-			      <span></span>
-			      <span></span>
-			      <span></span>
-					<span></span>
+			    <!-- FIX: removed extra 4th <span> — Bulma burger requires exactly 3 spans -->
+			    <button class="button navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+			      <span aria-hidden="true"></span>
+			      <span aria-hidden="true"></span>
+			      <span aria-hidden="true"></span>
 			    </button>
 			  </div>
 
@@ -86,7 +87,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 			      <div class="navbar-item">
 			        <div class="field is-grouped">
 			          <p class="control">
-			            <a class=" button" data-social-network="Linkedin" data-social-target="https://www.linkedin.com/in/albertoalonsog/" target="_blank" href="https://www.linkedin.com/in/albertoalonsog/">
+			            <a class="button" data-social-network="Linkedin" data-social-target="https://www.linkedin.com/in/albertoalonsog/" target="_blank" href="https://www.linkedin.com/in/albertoalonsog/">
 			              <span class="icon">
 			                <i class="fa fa-linkedin"></i>
 			              </span>
@@ -300,6 +301,5 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 
 		<!-- Scripts  -->
 		<script src="controller.js"></script>
-		<!-- Contact snippet -->
 	</body>
 </html>

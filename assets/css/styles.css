@@ -1,5 +1,8 @@
-html, body{
-	font-size:16px;
+/* =============================================================
+   BASE
+   ============================================================= */
+html, body {
+	font-size: 16px;
 	color: #1D2222;
 	background-color: #FFF;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -13,7 +16,7 @@ a:hover {
   color: #00d1b2;
 }
 
-section{
+section {
 	padding-bottom: 3rem;
 }
 
@@ -21,10 +24,13 @@ dd {
 	text-indent: 1rem;
 }
 
+/* =============================================================
+   SECTION BACKGROUNDS
+   ============================================================= */
 .section-1 {
 	background: #5AC5E2;
-	background: -webkit-linear-gradient(to right, #5AC5E2, #AFE2F0); /* Chrome 10-25, Safari 5.1-6 */
- 	background: linear-gradient(to right, #5AC5E2, #AFE2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right, #5AC5E2, #AFE2F0);
+	background: linear-gradient(to right, #5AC5E2, #AFE2F0);
 }
 
 .section-2 {
@@ -39,20 +45,18 @@ dd {
 	padding: 0.2rem;
 }
 
-a.nav-item {
-	color: #5AC5E2;
-}
-
-a.nav-item:hover {
-	color: #4C6161;
-}
-
-.avatar{
-	height:80px;
+/* =============================================================
+   AVATAR
+   ============================================================= */
+.avatar {
+	height: 80px;
 	border-radius: 50%;
 }
 
-.intro-description{
+/* =============================================================
+   MISC LAYOUT
+   ============================================================= */
+.intro-description {
 	padding-top: 1rem;
 }
 
@@ -81,6 +85,9 @@ a.nav-item:hover {
 	margin: 0 auto;
 }
 
+/* =============================================================
+   PHONE IFRAME MOCKUP (work_nequi)
+   ============================================================= */
 .iframe-phone {
     background-image: url("https://mockuphone.com/static/images/devices/apple-iphone6-spacegrey-portrait.png");
     background-repeat: no-repeat;
@@ -98,9 +105,153 @@ a.nav-item:hover {
     left: 233px;
 }
 
-/*Background Colours*/
+/* =============================================================
+   NAVBAR — MOBILE FIX
+   Force a solid background on mobile so the burger is visible
+   against the hero section. Bulma's is-transparent has no bg.
+   ============================================================= */
+@media screen and (max-width: 1023px) {
+  .navbar {
+    background-color: #ffffff;
+  }
 
-@media screen and (max-width: 768px) {
+  .navbar-menu.is-active {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+  }
 
+  /* 44px minimum touch target for the burger */
+  .navbar-burger {
+    height: 3.25rem;
+    width: 3.25rem;
+  }
+}
 
+/* =============================================================
+   DARK MODE — Bulma v1.0 HSL engine
+   ---------------------------------------------------------------
+   HOW BULMA v1 COLOUR SYSTEM WORKS:
+   Every colour is computed as:
+     hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), var(--bulma-X-l))
+   The *-l variables are lightness percentages. They are the ONLY
+   lever that matters. Setting --bulma-scheme-main to a hex value
+   is a no-op because Bulma rebuilds it from the HSL parts.
+
+   CORRECT APPROACH:
+   Override the *-l (lightness) tokens so Bulma recomputes all
+   derived colours from them automatically. Then add direct
+   background-color / color rules on html,body to guarantee the
+   page surface is dark even before any Bulma component paints.
+
+   Bulma's own [data-theme=dark] values (from the minified source):
+     --bulma-scheme-main-l:    9%
+     --bulma-scheme-main-bis-l:11%
+     --bulma-scheme-main-ter-l:13%
+     --bulma-background-l:     14%
+     --bulma-text-l:           71%
+     --bulma-text-strong-l:    93%
+     --bulma-text-title-l:     100%
+     --bulma-border-l:         24%
+     --bulma-scheme-brightness:dark
+   We use these exact values plus explicit fallback rules.
+   ============================================================= */
+
+/* --- Explicit [data-theme="dark"] block --- */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Lightness tokens — these drive ALL computed Bulma colours */
+  --bulma-scheme-brightness: dark;
+  --bulma-scheme-main-l: 9%;
+  --bulma-scheme-main-bis-l: 11%;
+  --bulma-scheme-main-ter-l: 13%;
+  --bulma-background-l: 14%;
+  --bulma-border-weak-l: 21%;
+  --bulma-border-l: 24%;
+  --bulma-text-weak-l: 53%;
+  --bulma-text-l: 71%;
+  --bulma-text-strong-l: 93%;
+  --bulma-text-title-l: 100%;
+  --bulma-hover-background-l-delta: 5%;
+  --bulma-active-background-l-delta: 10%;
+  --bulma-hover-border-l-delta: 10%;
+  --bulma-active-border-l-delta: 20%;
+  --bulma-hover-color-l-delta: 5%;
+  --bulma-active-color-l-delta: 10%;
+  --bulma-soft-l: 20%;
+  --bulma-bold-l: 90%;
+  --bulma-soft-invert-l: 90%;
+  --bulma-bold-invert-l: 20%;
+
+  /* Direct paint — guarantees dark background & readable text
+     on html/body regardless of CSS custom property resolution order.
+     background-color must win over styles.css html,body { background-color: #FFF } */
+}
+
+[data-theme="dark"] html,
+[data-theme="dark"] body,
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  background-color: #161616;
+  color: #e0e0e0;
+}
+
+/* Navbar mobile must also go dark */
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .navbar-menu.is-active {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .navbar-item,
+[data-theme="dark"] .navbar-link {
+  color: #e0e0e0;
+}
+
+/* --- prefers-color-scheme: dark fallback (OS-level / browser automatic) ---
+   Mirrors the exact same token set so dark mode works with no JS
+   and no data-theme attribute. The :not([data-theme="light"]) guard
+   prevents this from overriding an explicit light-mode toggle. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bulma-scheme-brightness: dark;
+    --bulma-scheme-main-l: 9%;
+    --bulma-scheme-main-bis-l: 11%;
+    --bulma-scheme-main-ter-l: 13%;
+    --bulma-background-l: 14%;
+    --bulma-border-weak-l: 21%;
+    --bulma-border-l: 24%;
+    --bulma-text-weak-l: 53%;
+    --bulma-text-l: 71%;
+    --bulma-text-strong-l: 93%;
+    --bulma-text-title-l: 100%;
+    --bulma-hover-background-l-delta: 5%;
+    --bulma-active-background-l-delta: 10%;
+    --bulma-soft-l: 20%;
+    --bulma-bold-l: 90%;
+    --bulma-soft-invert-l: 90%;
+    --bulma-bold-invert-l: 20%;
+  }
+
+  /* Explicit paint fallback — needed because html,body in styles.css
+     hardcodes background-color:#FFF with no media query guard. */
+  html:not([data-theme="light"]),
+  body:not([data-theme="light"]) {
+    background-color: #161616;
+    color: #e0e0e0;
+  }
+
+  html:not([data-theme="light"]) .navbar,
+  html:not([data-theme="light"]) .navbar-menu.is-active {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+
+  html:not([data-theme="light"]) .navbar-item,
+  html:not([data-theme="light"]) .navbar-link {
+    color: #e0e0e0;
+  }
 }
