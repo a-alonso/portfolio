@@ -23,6 +23,8 @@ A developer reference for building and maintaining pages in this portfolio. All 
 ```
 portfolio/
 ├── index.html               ← Home page (hero + work grid)
+├── work_smartrisk.html      ← Case study page
+├── work_smartrisk_llm.html  ← Case study page
 ├── work_jpmc.html           ← Case study page
 ├── work_repay_1.html        ← Case study page
 ├── work_repay_2.html        ← Case study page
@@ -96,10 +98,11 @@ Every page uses this identical navbar. The only variation is which `navbar-item`
 ```html
 <nav class="navbar is-transparent" role="navigation" aria-label="dropdown navigation">
   <div class="navbar-brand">
-    <button class="button navbar-burger" data-target="navMenu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="button navbar-burger" data-target="navMenu"
+            aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
   </div>
 
@@ -111,6 +114,9 @@ Every page uses this identical navbar. The only variation is which `navbar-item`
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#about">Work</a>
         <div class="navbar-dropdown is-boxed">
+          <a class="navbar-item" href="work_smartrisk.html">IQ SmartRisk</a>
+          <a class="navbar-item" href="work_smartrisk_llm.html">IQ SmartRisk LLM Monitoring</a>
+          <hr class="navbar-divider">
           <a class="navbar-item" href="work_jpmc.html">JP Morgan services documentation</a>
           <hr class="navbar-divider">
           <a class="navbar-item" href="work_repay_2.html">Repay consumer-facing</a>
@@ -156,8 +162,11 @@ Every page uses this identical navbar. The only variation is which `navbar-item`
 **Rules:**
 - `data-target="navMenu"` on the burger and `id="navMenu"` on the menu must always match — `controller.js` depends on this.
 - Always `<button>` for the navbar-burger, never `<div>` or `<a>`.
+- Always `aria-label="menu"` and `aria-expanded="false"` on the burger button.
+- Always `aria-hidden="true"` on each of the 3 decorative `<span>` elements inside the burger.
 - Always `target="_blank"` on external links (Rappi, Endava, LinkedIn, GitHub). Never `target:` — use `target=`.
 - `<nav>` is the required tag for `.navbar`.
+- `role="navigation"` + `aria-label="dropdown navigation"` are required — they disambiguate this nav from others on the page.
 
 ---
 
