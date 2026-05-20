@@ -27,12 +27,10 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 </head>
 	<body>
 		<!-- About Me -->
-		<!-- FIX: removed is-bold (deprecated in Bulma v1.0, has no effect) -->
 		<section id="about" class="hero is-light">
 			<!-- Navbar -->
 			<nav class="navbar is-transparent" role="navigation" aria-label="dropdown navigation">
 			  <div class="navbar-brand">
-			    <!-- FIX: removed extra 4th <span> — Bulma burger requires exactly 3 spans -->
 			    <button class="button navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
 			      <span aria-hidden="true"></span>
 			      <span aria-hidden="true"></span>
@@ -50,6 +48,10 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 			          Work
 			        </a>
 			        <div class="navbar-dropdown is-boxed">
+			          <a class="navbar-item" href="work_iq_quantum.html">
+			            IQ Quantum
+			          </a>
+			          <hr class="navbar-divider">
 			          <a class="navbar-item" href="work_smartrisk.html">
 			            IQ SmartRisk
 			          </a>
@@ -154,14 +156,35 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 		</section>
 
 		<!-- Work -->
-		<section  id="Work" class="section section-2">
+		<section id="Work" class="section section-2">
 			<div class="container">
 				<div class="has-text-centered">
 					<h2 class="title is-2">Work</h2>
 				</div>
 
-				<!-- Row 1: SmartRisk -->
+				<!-- Row 1: IQ Quantum + IQ SmartRisk -->
 				<div class="columns is-desktop">
+					<!-- Project: IQ Quantum -->
+					<div class="column is-6 is-flex">
+						<a href="work_iq_quantum.html" target="_blank" class="is-flex is-flex-direction-column is-fullheight" style="width:100%">
+							<div class="card is-flex is-flex-direction-column is-fullheight">
+								<div class="card-image">
+									<figure class="image is-350x150">
+										<img src="assets/img/work_8.png" alt="IQ Quantum">
+									</figure>
+								</div>
+								<div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
+									<p class="title is-3">IQ Quantum</p>
+									<p class="subtitle is-6">[Short description placeholder]</p>
+									<p class="mt-auto"><br>Read more
+										<span class="icon">
+											<i class="fa fa-long-arrow-right"></i>
+										</span>
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
 					<!-- Project: IQ SmartRisk -->
 					<div class="column is-6 is-flex">
 						<a href="work_smartrisk.html" target="_blank" class="is-flex is-flex-direction-column is-fullheight" style="width:100%">
@@ -174,7 +197,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 								<div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
 									<p class="title is-3">IQ SmartRisk</p>
 									<p class="subtitle is-6">Risk analysis platform that combines specialised AI with expert insurance knowledge</p>
-									<p class="mt-auto"> <br>Read more
+									<p class="mt-auto"><br>Read more
 										<span class="icon">
 											<i class="fa fa-long-arrow-right"></i>
 										</span>
@@ -183,6 +206,10 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 							</div>
 						</a>
 					</div>
+				</div>
+
+				<!-- Row 2: IQ SmartRisk LLM + JPMC -->
+				<div class="columns is-desktop">
 					<!-- Project: IQ SmartRisk LLM Monitoring -->
 					<div class="column is-6 is-flex">
 						<a href="work_smartrisk_llm.html" target="_blank" class="is-flex is-flex-direction-column is-fullheight" style="width:100%">
@@ -195,7 +222,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 								<div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
 									<p class="title is-3">IQ SmartRisk LLM Monitoring</p>
 									<p class="subtitle is-6">Underwriting Advice Engine settings and LLM monitoring for each case of use</p>
-									<p class="mt-auto"> <br>Read more
+									<p class="mt-auto"><br>Read more
 										<span class="icon">
 											<i class="fa fa-long-arrow-right"></i>
 										</span>
@@ -204,12 +231,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 							</div>
 						</a>
 					</div>
-
-				</div>
-
-				<!-- Row 2 -->
-				<div class="columns is-desktop">
-					<!-- Project 1: JPMC -->
+					<!-- Project: JPMC -->
 					<div class="column is-6 is-flex">
 						<a href="work_jpmc.html" target="_blank" class="is-flex is-flex-direction-column is-fullheight" style="width:100%">
 							<div class="card is-flex is-flex-direction-column is-fullheight">
@@ -221,7 +243,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 								<div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
 									<p class="title is-3">JP Morgan services documentation</p>
 									<p class="subtitle is-6">Documentation Portal for payments gateway, treasury and fraud services</p>
-									<p class="mt-auto"> <br>Read more
+									<p class="mt-auto"><br>Read more
 										<span class="icon">
 											<i class="fa fa-long-arrow-right"></i>
 										</span>
@@ -230,7 +252,11 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 							</div>
 						</a>
 					</div>
-					<!-- Project 2: REPAY Config -->
+				</div>
+
+				<!-- Row 3: REPAY Config + REPAY Direct Debit -->
+				<div class="columns is-desktop">
+					<!-- Project: REPAY Config -->
 					<div class="column is-6 is-flex">
 						<a href="work_repay_1.html" target="_blank" class="is-flex is-flex-direction-column is-fullheight" style="width:100%">
 							<div class="card is-flex is-flex-direction-column is-fullheight">
@@ -242,7 +268,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 								<div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
 									<p class="title is-3">REPAY Config Tool</p>
 									<p class="subtitle is-6">Payments Gateway | If-then statement wizard for lenders Configuring</p>
-									<p class="mt-auto"> <br>Read more
+									<p class="mt-auto"><br>Read more
 										<span class="icon">
 											<i class="fa fa-long-arrow-right"></i>
 										</span>
@@ -251,11 +277,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 							</div>
 						</a>
 					</div>
-				</div>
-
-				<!-- Row 3 -->
-				<div class="columns is-desktop">
-					<!-- Project 3: REPAY Direct Debit -->
+					<!-- Project: REPAY Direct Debit -->
 					<div class="column is-6 is-flex">
 						<a href="work_repay_2.html" target="_blank" class="is-flex is-flex-direction-column is-fullheight" style="width:100%">
 							<div class="card is-flex is-flex-direction-column is-fullheight">
@@ -267,7 +289,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 								<div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
 									<p class="title is-3">REPAY Direct Debit</p>
 									<p class="subtitle is-6">Payments Gateway | Scheduled Payments</p>
-									<p class="mt-auto"> <br>Read more
+									<p class="mt-auto"><br>Read more
 										<span class="icon">
 											<i class="fa fa-long-arrow-right"></i>
 										</span>
@@ -276,7 +298,11 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 							</div>
 						</a>
 					</div>
-					<!-- Project 4: Rappi -->
+				</div>
+
+				<!-- Row 4: Rappi + Hogaru -->
+				<div class="columns is-desktop">
+					<!-- Project: Rappi -->
 					<div class="column is-6 is-flex">
 						<a href="work_rappi.html" target="_blank" class="is-flex is-flex-direction-column is-fullheight" style="width:100%">
 							<div class="card is-flex is-flex-direction-column is-fullheight">
@@ -288,7 +314,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 								<div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
 									<p class="title is-3">Rappi</p>
 									<p class="subtitle is-6">E-Commerce delivery App | 1,273,000 active users | 🇨🇴 🇧🇷 🇦🇷 🇲🇽 🇨🇱 </p>
-									<p class="mt-auto"> <br>Read more
+									<p class="mt-auto"><br>Read more
 										<span class="icon">
 											<i class="fa fa-long-arrow-right"></i>
 										</span>
@@ -297,11 +323,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 							</div>
 						</a>
 					</div>
-				</div>
-
-				<!-- Row 4 -->
-				<div class="columns is-desktop">
-					<!-- Project 5: Hogaru -->
+					<!-- Project: Hogaru -->
 					<div class="column is-6 is-flex">
 						<a href="work_hogaru.html" target="_blank" class="is-flex is-flex-direction-column is-fullheight" style="width:100%">
 							<div class="card is-flex is-flex-direction-column is-fullheight">
@@ -313,7 +335,7 @@ mixpanel.init("98cd2875919d56c58986d86e3ba1e16e");</script><!-- end Mixpanel -->
 								<div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
 									<p class="title is-3">Hogaru</p>
 									<p class="subtitle is-6">On demand cleaning service</p>
-									<p class="mt-auto"> <br>Read more
+									<p class="mt-auto"><br>Read more
 										<span class="icon">
 											<i class="fa fa-long-arrow-right"></i>
 										</span>
