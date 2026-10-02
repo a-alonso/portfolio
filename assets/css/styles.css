@@ -86,6 +86,92 @@ dd {
 }
 
 /* =============================================================
+   PRIVACY POLICY
+   ============================================================= */
+.privacy-header {
+	border-bottom: 1px solid #e8e8e8;
+	background-color: #fff;
+}
+
+.privacy-header-content {
+	display: flex;
+	align-items: center;
+	min-height: 4.5rem;
+}
+
+.privacy-brand {
+	color: #1D2222;
+	font-size: 1.25rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.privacy-brand:hover {
+	color: #CD4D2D;
+}
+
+.privacy-hero {
+	padding: 5.5rem 1.5rem 4rem;
+	background: linear-gradient(to right, #5AC5E2, #AFE2F0);
+}
+
+.privacy-content {
+	max-width: 48rem;
+}
+
+.privacy-eyebrow {
+	margin-bottom: 0.5rem;
+	color: #0E282E;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+}
+
+.privacy-hero .title {
+	margin-bottom: 0.75rem;
+}
+
+.privacy-hero .subtitle {
+	margin-bottom: 2rem;
+	color: #1D2222;
+}
+
+.privacy-section {
+	padding: 4rem 1.5rem 5rem;
+}
+
+.privacy-section h2:not(:first-child) {
+	margin-top: 2.5rem;
+}
+
+.privacy-section p {
+	line-height: 1.7;
+}
+
+.privacy-footer {
+	padding: 1.5rem;
+	color: #e0e0e0;
+	background-color: #0E282E;
+}
+
+@media screen and (max-width: 768px) {
+	.privacy-hero {
+		padding-top: 3.5rem;
+		padding-bottom: 3rem;
+	}
+
+	.privacy-hero .title {
+		font-size: 2.5rem;
+	}
+
+	.privacy-section {
+		padding-top: 3rem;
+		padding-bottom: 3.5rem;
+	}
+}
+
+/* =============================================================
    PHONE IFRAME MOCKUP (work_nequi)
    ============================================================= */
 .iframe-phone {
